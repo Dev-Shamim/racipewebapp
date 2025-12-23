@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Recipe Corner</title>
+    <!-- Tailwind CSS for utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-800">
+
+    <!-- Header & Hero Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-40 relative">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-orange-500 p-2 rounded-lg text-white">
+                    <i data-lucide="utensils-crosses"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-orange-600">RecipeApp</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex gap-8 font-medium">
+                <a href="#" class="text-orange-600">Home</a>
+                <a href="#" class="hover:text-orange-500 transition">Categories</a>
+                <a href="#" class="hover:text-orange-500 transition">Popular</a>
+            </nav>
+
+            <!-- Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-slate-700 hover:text-orange-600 transition focus:outline-none">
+                <i data-lucide="menu" size="28"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 flex-col gap-4 px-6 md:hidden">
+            <a href="#" class="block text-orange-600 font-medium py-2">Home</a>
+            <a href="#" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Categories</a>
+            <a href="#" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Popular</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section text-white py-20 md:py-32 mb-12 relative overflow-hidden flex items-center justify-center text-center">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop" alt="Hero Background" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-6">Find Your Favorite <span class="text-orange-500">Dish</span> Today</h2>
+                <p class="text-slate-200 max-w-2xl mx-auto mb-10 text-lg md:text-xl">Discover thousands of recipes and learn to cook your favorite meals with easy steps.</p>
+                
+                <!-- Search Bar -->
+                <div class="flex max-w-xl mx-auto relative">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search for recipes... (e.g. Chicken, Cake)" 
+                        class="w-full pl-6 pr-14 py-4 rounded-full border-none focus:ring-4 focus:ring-orange-500/50 outline-none transition shadow-xl text-lg text-slate-800"
+                    >
+                    <button 
+                        id="search-btn"
+                        class="absolute right-2 top-2 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition shadow-lg"
+                    >
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 py-8">
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="categories">
+                <button class="cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white hover:bg-orange-100 hover:border-orange-500 transition font-medium" data-cat="all">All</button>
+                <button class="cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white hover:bg-orange-100 hover:border-orange-500 transition font-medium" data-cat="Chicken">Chicken</button>
+                <button class="cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white hover:bg-orange-100 hover:border-orange-500 transition font-medium" data-cat="Dessert">Dessert</button>
+                <button class="cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white hover:bg-orange-100 hover:border-orange-500 transition font-medium" data-cat="Seafood">Seafood</button>
+                <button class="cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white hover:bg-orange-100 hover:border-orange-500 transition font-medium" data-cat="Vegetarian">Vegetarian</button>
+            </div>
+
+            <!-- Results Info -->
+            <div id="status-container" class="mb-6 flex justify-between items-center">
+                <h3 id="result-title" class="text-xl font-bold text-slate-700">Popular Recipes</h3>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="hidden flex justify-center items-center py-20">
+                <div class="loader"></div>
+            </div>
+
+            <!-- Recipe Grid -->
+            <div id="recipe-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Cards will be injected here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="not-found" class="hidden text-center py-20">
+                <div class="text-6xl mb-4">🍽️</div>
+                <h3 class="text-2xl font-bold mb-2">Sorry, no recipes found!</h3>
+                <p class="text-slate-500">Try searching with a different name.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <i data-lucide="utensils-crosses" class="text-orange-500"></i>
+                <span class="text-2xl font-bold">RecipeApp</span>
+            </div>
+            <p class="text-slate-400 mb-6">Enrich your cooking experience with new recipes every day.</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-orange-500 transition"><i data-lucide="facebook"></i></a>
+                <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-orange-500 transition"><i data-lucide="instagram"></i></a>
+                <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-orange-500 transition"><i data-lucide="twitter"></i></a>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-sm text-slate-500">
+                &copy; 2024 RecipeApp. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Modal for Recipe Details -->
+    <div id="recipe-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="modal-overlay absolute inset-0"></div>
+        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 shadow-2xl">
+            <button id="close-modal" class="absolute right-4 top-4 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition z-20">
+                <i data-lucide="x"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

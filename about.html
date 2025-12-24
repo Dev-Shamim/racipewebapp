@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Delicious Recipe Corner</title>
+    <meta name="description" content="Learn about our mission, history, and the passionate team behind Delicious Recipe Corner.">
+    <!-- Tailwind CSS for utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40 relative">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="bg-orange-500 p-2 rounded-lg text-white">
+                        <i data-lucide="utensils-crosses"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-orange-600">RecipeApp</h1>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex gap-8 font-medium">
+                <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+                <a href="index.html#features" class="hover:text-orange-500 transition">Features</a>
+                <a href="index.html#categories" class="hover:text-orange-500 transition">Categories</a>
+                <a href="index.html#popular" class="hover:text-orange-500 transition">Popular</a>
+                <a href="about.html" class="text-orange-600 font-bold">About Us</a>
+                <a href="index.html#contact" class="hover:text-orange-500 transition">Contact</a>
+            </nav>
+
+            <!-- Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-slate-700 hover:text-orange-600 transition focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" size="28"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 flex-col gap-4 px-6 md:hidden">
+            <a href="index.html" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Home</a>
+            <a href="index.html#features" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Features</a>
+            <a href="index.html#categories" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Categories</a>
+            <a href="index.html#popular" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Popular</a>
+            <a href="about.html" class="block text-orange-600 font-medium py-2">About Us</a>
+            <a href="index.html#contact" class="block text-slate-600 hover:text-orange-500 font-medium py-2 transition">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-orange-600 text-white py-20 text-center relative overflow-hidden">
+            <div class="absolute inset-0 pattern-dots opacity-10"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Our Story & Mission</h1>
+                <p class="text-orange-100 max-w-2xl mx-auto text-lg md:text-xl">Empowering home cooks to discover, create, and share the joy of food.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=2070&auto=format&fit=crop" alt="Cooking Together" class="rounded-3xl shadow-2xl transform hover:rotate-2 transition duration-500 w-full h-auto">
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">Our Mission</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Bringing the World's Kitchens to Your Home</h2>
+                        <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+                            At RecipeApp, we believe that cooking is more than just preparing food—it's an expression of love, culture, and creativity. Our mission is to make high-quality, diverse recipes accessible to everyone, regardless of their skill level.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            We strive to build a vibrant community where food enthusiasts can connect, learn, and grow together. From 15-minute weeknight dinners to gourmet weekend projects, we're here to guide you every step of the way.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History / Timeline Section -->
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-16">
+                    <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">Our Journey</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">How It All Started</h2>
+                </div>
+                
+                <div class="relative border-l-4 border-orange-200 ml-4 md:ml-1/2 space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute -left-[13px] top-0 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-md"></div>
+                        <div class="md:flex items-center justify-between gap-8 md:flex-row-reverse">
+                            <div class="md:w-1/2 mb-2 md:mb-0">
+                                <span class="text-orange-600 font-bold text-xl block md:text-right">2020</span>
+                            </div>
+                            <div class="md:w-1/2 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                                <h3 class="font-bold text-lg mb-2">The Idea</h3>
+                                <p class="text-slate-500">Founded in a small kitchen during lockdown, born from a desire to organize scattered family recipes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute -left-[13px] top-0 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-md"></div>
+                        <div class="md:flex items-center justify-between gap-8">
+                            <div class="md:w-1/2 mb-2 md:mb-0">
+                                <span class="text-orange-600 font-bold text-xl block">2022</span>
+                            </div>
+                            <div class="md:w-1/2 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                                <h3 class="font-bold text-lg mb-2">Going Global</h3>
+                                <p class="text-slate-500">Expanded our database to include cuisines from over 50 countries, reaching 1 million active users.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-8 md:pl-0">
+                        <div class="absolute -left-[13px] top-0 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-md"></div>
+                        <div class="md:flex items-center justify-between gap-8 md:flex-row-reverse">
+                            <div class="md:w-1/2 mb-2 md:mb-0">
+                                <span class="text-orange-600 font-bold text-xl block md:text-right">2024</span>
+                            </div>
+                            <div class="md:w-1/2 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                                <h3 class="font-bold text-lg mb-2">Community First</h3>
+                                <p class="text-slate-500">Launched social features allowing users to share their own creations and cook along with friends.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">The Team</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Meet the Taste Makers</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-lg transition group">
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:border-orange-500 transition">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Sarah Johnson</h3>
+                        <p class="text-orange-600 font-medium text-sm mb-4">Founder & CEO</p>
+                        <p class="text-slate-500 text-sm mb-6">Former chef turned tech entrepreneur with a passion for sustainable cooking.</p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-lg transition group">
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:border-orange-500 transition">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike Chen" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Mike Chen</h3>
+                        <p class="text-orange-600 font-medium text-sm mb-4">Head of Culinary</p>
+                        <p class="text-slate-500 text-sm mb-6">Michelin-starred background, ensuring every recipe is perfection.</p>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-lg transition group">
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:border-orange-500 transition">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Davis" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">Emily Davis</h3>
+                        <p class="text-orange-600 font-medium text-sm mb-4">Lead Developer</p>
+                        <p class="text-slate-500 text-sm mb-6">Building the smooth, fast, and accessible experience you love.</p>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center hover:shadow-lg transition group">
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:border-orange-500 transition">
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="David Wilson" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">David Wilson</h3>
+                        <p class="text-orange-600 font-medium text-sm mb-4">Community Manager</p>
+                        <p class="text-slate-500 text-sm mb-6">Connecting foodies and organizing our famous weekly challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
+             <div class="absolute inset-0 opacity-10 pattern-dots"></div>
+             <div class="container mx-auto px-4 max-w-4xl relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">Get in Touch</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">We'd Love to Hear From You</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto text-lg">Have a question, suggestion, or just want to say hi? Fill out the form below.</p>
+                </div>
+                
+                <form class="bg-white text-slate-800 p-8 md:p-12 rounded-3xl shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-slate-700 font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/20 outline-none transition bg-slate-50" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-slate-700 font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/20 outline-none transition bg-slate-50" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-slate-700 font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/20 outline-none transition bg-slate-50 h-32 resize-none" placeholder="How can we help?" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-orange-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-orange-700 transition transform hover:-translate-y-1">Send Message</button>
+                </form>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand & About -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="utensils-crosses" class="text-orange-500"></i>
+                        <span class="text-2xl font-bold">RecipeApp</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Enrich your cooking experience with new recipes every day. Join our community of food lovers.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-orange-500 transition" aria-label="Facebook"><i data-lucide="facebook" size="20"></i></a>
+                        <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-orange-500 transition" aria-label="Instagram"><i data-lucide="instagram" size="20"></i></a>
+                        <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-orange-500 transition" aria-label="Twitter"><i data-lucide="twitter" size="20"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 underline decoration-orange-500 underline-offset-8 decoration-2">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="index.html" class="hover:text-orange-500 transition">Home</a></li>
+                        <li><a href="index.html#categories" class="hover:text-orange-500 transition">Categories</a></li>
+                        <li><a href="about.html" class="text-orange-500 transition">About Us</a></li>
+                        <li><a href="index.html#contact" class="hover:text-orange-500 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 underline decoration-orange-500 underline-offset-8 decoration-2">Legal</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a href="#" class="hover:text-orange-500 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 underline decoration-orange-500 underline-offset-8 decoration-2">Contact Us</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="text-orange-500 shrink-0" size="20"></i>
+                            <span>hello@recipeapp.com</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="text-orange-500 shrink-0" size="20"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2025 RecipeApp Inc. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-orange-500 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-500 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110" aria-label="Scroll to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

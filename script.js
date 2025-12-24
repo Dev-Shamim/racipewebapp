@@ -170,35 +170,8 @@ if(categoryBtns) {
 
 async function get_all_recipes() {
   if(!recipeGrid) return;
-  
-  recipeGrid.innerHTML = "";
-  if(loading) loading.classList.remove("hidden");
-  if(notFound) notFound.classList.add("hidden");
-  if(paginationContainer) paginationContainer.classList.add("hidden");
-  if(resultTitle) resultTitle.innerText = "All Featured Recipes";
-
-  try {
-    const response = await fetch("recipes.json");
-    // Handle non-existent local file by throwing to catch block
-    if (!response.ok) throw new Error("Local file not found");
-    
-    const data = await response.json();
-
-    if(loading) loading.classList.add("hidden");
-
-    if (data.meals) {
-      currentMeals = data.meals;
-      currentPage = 1;
-      displayRecipes(currentMeals, recipeGrid);
-      setupPagination(currentMeals);
-    } else {
-      if(notFound) notFound.classList.remove("hidden");
-    }
-  } catch (error) {
-    // Fallback to API
-    if(loading) loading.classList.add("hidden");
-    fetchRecipes("egg", "All Featured Recipes");
-  }
+  // Fetch from API with empty string to get a variety of recipes
+  fetchRecipes("", "All Featured Recipes");
 }
 
 async function fetchRecipes(query, customTitle = null) {

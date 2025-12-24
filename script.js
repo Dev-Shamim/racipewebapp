@@ -277,7 +277,7 @@ function displayRecipes(meals, container, usePagination = true) {
                     <span>${meal.strArea} Origin</span>
                 </div>
                 <p class="text-slate-600 text-sm mb-4 line-clamp-2" title="${meal.strInstructions}">${description}</p>
-                <button class="w-full py-3 bg-orange-50 hover:bg-orange-500 hover:text-white text-orange-600 font-bold rounded-xl transition flex items-center justify-center gap-2" onclick="openDetails('${meal.idMeal}')">
+                <button class="w-full py-3 bg-orange-500 hover:bg-green-500 hover:text-red-500 text-white font-bold rounded-xl transition flex items-center justify-center gap-2" onclick="openDetails('${meal.idMeal}')">
                     View Recipe <i data-lucide="arrow-right" size="18"></i>
                 </button>
             </div>

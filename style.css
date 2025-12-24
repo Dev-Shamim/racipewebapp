@@ -45,3 +45,177 @@ body {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
 }
+
+.pattern-dots {
+    background-image: radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 20px 20px;
+}
+
+/* Parallax Background */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.cat-btn {
+    transition: all 0.3s ease;
+}
+
+.cat-btn:hover {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: white !important;
+}
+
+.cat-btn.active {
+    background-color: #F97316 !important;
+    border-color: #0056b3 !important;
+    color: white !important;
+}
+
+/* Reveal on Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Tooltip styles */
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1e293b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 50;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1e293b transparent transparent transparent;
+}
+
+.tooltip-trigger:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Feature Card Enhancements */
+.feature-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: #f97316;
+    box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.1), 0 10px 10px -5px rgba(249, 115, 22, 0.04);
+}
+
+.feature-card .icon-box {
+    transition: all 0.4s ease;
+}
+
+.feature-card:hover .icon-box {
+    transform: rotate(12deg) scale(1.1);
+    background-color: #f97316;
+    color: white;
+}
+
+/* Progress Indicator */
+.step-item {
+    position: relative;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .step-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: calc(50% + 24px);
+        width: calc(100% - 48px);
+        height: 2px;
+        background: #e2e8f0;
+        z-index: 0;
+    }
+
+    .step-item.active:not(:last-child)::after {
+        background: #f97316;
+    }
+}
+
+/* Stats Counter */
+.stat-counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Selected Feature Highlight */
+.feature-card.selected {
+    background-color: #fff7ed;
+    border-color: #f97316;
+    ring: 2px solid #f97316;
+}
+
+.feature-highlight-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.feature-highlight-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

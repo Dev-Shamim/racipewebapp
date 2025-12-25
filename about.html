@@ -14,7 +14,7 @@
                 extend: {
                     colors: {
                         primary: '#F0FFF0',   // Light Peach
-                        secondary: '#A0D2EB', // Sky Blue
+                        secondary: '#F97316', // Sky Blue
                         accent: '#F97316',    // Coral
                         dark: '#4A4A4A',      // Dark Gray for text
                     },
@@ -346,6 +346,11 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
     <!-- Scroll Animation Script -->
     <script>
         // Init Lucide Icons
@@ -357,6 +362,21 @@
         menuBtn.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
         });
+
+        // Scroll to Top Logic
+        const scrollBtn = document.getElementById("scroll-to-top");
+        window.onscroll = () => {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                if(scrollBtn) scrollBtn.style.display = "block";
+            } else {
+                if(scrollBtn) scrollBtn.style.display = "none";
+            }
+        };
+        if(scrollBtn) {
+            scrollBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
 
         // Intersection Observer for Fade-in Animations
         const revealElements = document.querySelectorAll(".reveal");

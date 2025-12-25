@@ -482,6 +482,37 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section id="faq" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-12">
+                    <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">Support</span>
+                    <h2 class="font-heading text-4xl font-bold mb-6 text-slate-900">Frequently Asked Questions</h2>
+                    <p class="text-slate-500">Find answers to common questions about our platform and community.</p>
+                </div>
+
+                <!-- Search & Filter -->
+                <div class="mb-10">
+                    <div class="relative max-w-lg mx-auto mb-8">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="faq-search" placeholder="Search for answers..." class="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 outline-none transition shadow-sm">
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center gap-3" id="faq-categories">
+                        <button class="faq-cat-btn active px-6 py-2 rounded-full border border-orange-500 bg-orange-500 text-white font-bold transition" data-category="all">All</button>
+                        <button class="faq-cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white text-slate-600 hover:border-orange-500 hover:text-orange-500 font-bold transition" data-category="general">General</button>
+                        <button class="faq-cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white text-slate-600 hover:border-orange-500 hover:text-orange-500 font-bold transition" data-category="recipes">Recipes</button>
+                        <button class="faq-cat-btn px-6 py-2 rounded-full border border-slate-200 bg-white text-slate-600 hover:border-orange-500 hover:text-orange-500 font-bold transition" data-category="account">Account</button>
+                    </div>
+                </div>
+
+                <!-- FAQ List -->
+                <div class="space-y-4" id="faq-list">
+                    <!-- Items injected via JS -->
+                </div>
+            </div>
+        </section>
+
         <!-- Call to Action Section -->
         <section class="py-20 bg-orange-600 relative overflow-hidden">
             <div class="absolute inset-0 opacity-10 pattern-dots"></div>

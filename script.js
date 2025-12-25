@@ -652,3 +652,118 @@ if (revealElements.length > 0) {
     
     revealElements.forEach((el) => revealObserver.observe(el));
 }
+
+// --- FAQ Logic ---
+const faqData = [
+    {
+        question: "Is RecipeApp free to use?",
+        answer: "Yes! RecipeApp is completely free for browsing recipes and saving your favorites. We also have a premium subscription for exclusive content.",
+        category: "general"
+    },
+    {
+        question: "How do I save a recipe?",
+        answer: "Simply click the heart icon on any recipe card. You can view your saved recipes in the 'Popular Recipes' (Favorites) page.",
+        category: "recipes"
+    },
+    {
+        question: "Can I submit my own recipes?",
+        answer: "Currently, recipe submission is open to verified chefs. You can apply to become a contributor in your account settings.",
+        category: "account"
+    },
+    {
+        question: "Where do you source your recipes?",
+        answer: "Our recipes come from a curated community of professional chefs and culinary experts from around the world.",
+        category: "general"
+    },
+    {
+        question: "I have dietary restrictions. Can I filter recipes?",
+        answer: "Yes, use the category buttons on the home page to filter by type (e.g., Vegan, Vegetarian). We are working on more specific allergen filters.",
+        category: "recipes"
+    },
+    {
+        question: "How do I reset my password?",
+        answer: "Go to the login page and click 'Forgot Password'. Follow the instructions sent to your email.",
+        category: "account"
+    }
+];
+
+const faqList = document.getElementById("faq-list");
+const faqSearch = document.getElementById("faq-search");
+const faqCatBtns = document.querySelectorAll(".faq-cat-btn");
+
+function renderFAQ(filter = "all", query = "") {
+    if (!faqList) return;
+    faqList.innerHTML = "";
+    
+    const filtered = faqData.filter(item => {
+        const matchesCat = filter === "all" || item.category === filter;
+        const matchesSearch = item.question.toLowerCase().includes(query.toLowerCase()) || 
+                              item.answer.toLowerCase().includes(query.toLowerCase());
+        return matchesCat && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+        faqList.innerHTML = `<div class="text-center text-slate-500 py-8">No questions found matching your criteria.</div>`;
+        return;
+    }
+
+    filtered.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "border border-slate-200 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:shadow-md";
+        div.innerHTML = `
+            <button class="faq-toggle w-full flex items-center justify-between p-6 text-left font-bold text-slate-900 hover:text-orange-600 transition focus:outline-none">
+                <span>${item.question}</span>
+                <i data-lucide="chevron-down" class="transform transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-600 leading-relaxed">
+                ${item.answer}
+            </div>
+        `;
+        
+        // Toggle Logic
+        const btn = div.querySelector(".faq-toggle");
+        const content = div.querySelector(".faq-content");
+        const icon = div.querySelector("i");
+        
+        btn.addEventListener("click", () => {
+            const isOpen = !content.classList.contains("hidden");
+            
+            // Close all others (accordion style) - Optional, but nice
+            document.querySelectorAll(".faq-content").forEach(c => c.classList.add("hidden"));
+            document.querySelectorAll(".faq-toggle i").forEach(i => i.classList.remove("rotate-180"));
+            
+            if (!isOpen) {
+                content.classList.remove("hidden");
+                icon.classList.add("rotate-180");
+            }
+        });
+
+        faqList.appendChild(div);
+    });
+    lucide.createIcons();
+}
+
+// Init FAQ
+if (faqList) {
+    renderFAQ();
+
+    // Search Listener
+    faqSearch.addEventListener("input", (e) => {
+        const activeCat = document.querySelector(".faq-cat-btn.active").dataset.category;
+        renderFAQ(activeCat, e.target.value);
+    });
+
+    // Category Listener
+    faqCatBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            faqCatBtns.forEach(b => {
+                b.classList.remove("active", "bg-orange-500", "text-white", "border-orange-500");
+                b.classList.add("bg-white", "text-slate-600", "border-slate-200");
+            });
+            btn.classList.add("active", "bg-orange-500", "text-white", "border-orange-500");
+            btn.classList.remove("bg-white", "text-slate-600", "border-slate-200");
+            
+            renderFAQ(btn.dataset.category, faqSearch.value);
+        });
+    });
+}
